@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MT Manager (Vip)</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f0f4f8;
+    color: #202124;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #1a73e8, #4285f4);
+    color: #fff;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 700;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* App Container */
+.app-container {
+    max-width: 950px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.app-container:hover {
+    transform: translateY(-5px);
+}
+
+/* App Info */
+.app-info {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    gap: 25px;
+}
+.app-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 25px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+.app-icon:hover {
+    transform: scale(1.05);
+}
+.app-details {
+    flex: 1;
+}
+.app-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+    white-space: nowrap;        /* Single line */
+    overflow: hidden;           /* Hide overflow */
+    text-overflow: ellipsis;    /* Show ... if too long */
+}
+.developer {
+    font-size: 0.95em;
+    color: #5f6368;
+    margin-bottom: 15px;
+}
+.download-btn {
+    background-color: #1a73e8;
+    color: #fff;
+    padding: 14px 30px;
+    font-size: 1em;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.download-btn:hover {
+    background-color: #1765c1;
+    transform: scale(1.05);
+}
+
+/* Screenshots Section */
+.screenshots-section {
+    padding: 0 30px 30px 30px;
+}
+.screenshots-section h3 {
+    margin: 20px 0 10px;
+    font-size: 1.4em;
+    color: #1a1a1a;
+}
+.screenshots {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 15px 0;
+    scroll-behavior: smooth;
+}
+.screenshots img {
+    height: 420px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.screenshots img:hover {
+    transform: scale(1.05);
+}
+/* Scrollbar Style */
+.screenshots::-webkit-scrollbar {
+    height: 10px;
+}
+.screenshots::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+.screenshots::-webkit-scrollbar-thumb {
+    background: #1a73e8;
+    border-radius: 10px;
+}
+
+/* Description */
+.description {
+    padding: 0 30px 30px 30px;
+    line-height: 1.7;
+    color: #3c4043;
+}
+.description h3 {
+    font-size: 1.5em;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #5f6368;
+    font-size: 0.9em;
+    background: #f5f5f5;
+    margin-top: 40px;
+}
+
+/* Lightbox Styles */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+#close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5em;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+</style>
+</head>
+<body>
+
+<header>MT Manager (Vip)</header>
+
+<div class="app-container">
+    <!-- App Info -->
+    <div class="app-info">
+        <img src="https://iili.io/KyoF7RI.png" alt="App Icon" class="app-icon">
+        <div class="app-details">
+            <div class="app-title">MT Manager (Vip)</div>
+            <div class="developer">  </div>
+            <div class="developer">By Turjo</div>
+            <a href="MT Manager.apk" class="download-btn">Download</a>
+        </div>
+    </div>
+
+    <!-- Screenshots Carousel -->
+    <div class="screenshots-section">
+        <h3>Screenshots</h3>
+        <div class="screenshots">
+            <img src="https://iili.io/KyoRMHF.jpg" alt="Screenshot 1" class="screenshot">
+            <img src="https://iili.io/Kyo7lv1.jpg" alt="Screenshot 2" class="screenshot">
+            <img src="https://iili.io/KyoX9vj.jpg" alt="Screenshot 3" class="screenshot">
+            <img src="https://iili.io/KyoNisp.jpg" alt="Screenshot 4" class="screenshot">
+
+        </div>
+    </div>
+
+    <!-- Description -->
+    <div class="description">
+        <h3>Description</h3>
+        <p>
+
+🧩 MT Manager — Powerful File & APK Manager for Android
+
+MT Manager is one of the most advanced and multifunctional Android applications for file management, APK editing, text editing, and app modification — all directly from your smartphone! It’s specially designed for power users, developers, and modders who want full control over their Android system.
+
+
+        </p>
+    </div>
+</div>
+
+<footer>
+    Thanks To Allah.
+</footer>
+
+<!-- Fullscreen Lightbox -->
+<div id="lightbox">
+    <span id="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full Screenshot">
+</div>
+
+<script>
+const screenshots = document.querySelectorAll('.screenshot');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close');
+
+screenshots.forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target !== lightboxImg && e.target !== closeBtn) {
+        lightbox.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>
