@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Local Comment System</title>
+<style>
+body{font-family:Arial;background:#f2f2f2;padding:20px}
+.comment-box{max-width:500px;margin:auto;background:#fff;padding:20px;border-radius:10px}
+input,textarea,button{width:100%;margin:8px 0;padding:10px}
+button{background:#1a73e8;color:#fff;border:none;border-radius:6px;cursor:pointer}
+.comment{background:#eee;padding:8px;border-radius:6px;margin-top:5px}
+</style>
+</head>
+<body>
+
+<div class="comment-box">
+  <h2>Comments</h2>
+
+  <input type="text" id="name" placeholder="Your Name">
+  <textarea id="msg" placeholder="Your Comment"></textarea>
+  <button onclick="addComment()">Post</button>
+
+  <div id="comments"></div>
+</div>
+
+<script>
+const commentsDiv = document.getElementById("comments");
+
+// Load saved comments
+function loadComments(){
+  commentsDiv.innerHTML = "";
+  const data = JSON.parse(localStorage.getItem("comments") || "[]");
+  data.forEach(c=>{
+    commentsDiv.innerHTML +=
+      `<div class="comment"><b>${c.name}</b>: ${c.msg}</div>`;
+  });
+}
+
+// Add comment
+function addComment(){
+  const name = document.getElementById("name").value.trim();
+  const msg = document.getElementById("msg").value.trim();
+  if(!name || !msg) return;
+
+  const data = JSON.parse(localStorage.getItem("comments") || "[]");
+  data.push({name, msg});
+  localStorage.setItem("comments", JSON.stringify(data));
+
+  document.getElementById("name").value="";
+  document.getElementById("msg").value="";
+  loadComments();
+}
+
+// First load
+loadComments();
+</script>
+
+</body>
+</html>
